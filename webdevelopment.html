@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnLab - Web Development Course</title>
+    <link rel="icon" href="/images/logo1.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Hero Section with Parallax Effect */
+        .course-hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .parallax {
+            background: url('/images/web-dev.jpg') no-repeat center center;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            transform: translateY(0px);
+            will-change: transform;
+            transition: transform 0.8s ease-out;
+        }
+
+        .hero-content {
+            z-index: 1;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .cta-button {
+            background-color: #ff5733;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4411;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .book-reader iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 25px;
+            width: 35px;
+        }
+
+        .hamburger span {
+            height: 4px;
+            background: var(--theme-color);
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--theme-background);
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h2>LearnLab</h2>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about-us.html">About Us</a></li>
+                <li><a href="/courses.html">Courses</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/signup.html">Register</a></li>
+                <li><a href="/login.html">Login</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><button id="dark-mode-toggle">Dark Mode</button></li>
+            </ul>
+            <li id="user-info" class="hidden">
+                <span id="username"></span>
+                <a href="#" id="logout-link">Logout</a>
+            </li>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <section class="course-hero">
+        <div class="parallax"></div>
+        <div class="hero-content">
+            <h2>Web Development</h2>
+            <p>Master the art of building dynamic, responsive websites.</p>
+        </div>
+    </section>
+
+    <section class="course-details">
+        <h2>Course Overview</h2>
+        <p>
+            The Web Development course covers the essential skills you need to create modern, responsive websites. 
+            From HTML and CSS to JavaScript and server-side programming, this course provides a comprehensive 
+            guide to web development.
+        </p>
+
+        <h3>What You'll Learn</h3>
+        <ul>
+            <li>HTML5 and CSS3 Fundamentals</li>
+            <li>Responsive Web Design with Flexbox and Grid</li>
+            <li>JavaScript and DOM Manipulation</li>
+            <li>Front-End Frameworks (e.g., React)</li>
+            <li>Back-End Development (e.g., Node.js, Express)</li>
+            <li>Database Management (e.g., MongoDB)</li>
+            <li>Version Control with Git</li>
+            <li>Deployment and Hosting</li>
+        </ul>
+
+        <h3>Course Structure</h3>
+        <p>
+            This course is divided into several modules, each focusing on different aspects of web development. 
+            You will work on real-world projects to apply the skills you've learned and build a portfolio 
+            that showcases your abilities.
+        </p>
+
+        <h3>Who Should Enroll</h3>
+        <p>
+            This course is ideal for beginners looking to start a career in web development, as well as 
+            professionals seeking to update their skills. No prior programming experience is required.
+        </p>
+
+        <!-- Action buttons for reading and downloading the book -->
+        <div class="book-actions">
+            <button class="cta-button" id="read-book">Read Book</button>
+            <a href="/Book/1. Web Design Basics Author Bhoj University.pdf" class="cta-button" download>Download Book</a>
+        </div>
+    </section>
+
+    <section id="book-reader" class="book-reader hidden">
+        <h3>Web Development Book</h3>
+        <iframe src="" id="book-frame" frameborder="0"></iframe>
+        <button id="close-book" class="cta-button">Close Book</button>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 LearnLab. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Handle Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.navbar');
+
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Handle Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Handle Book Reading Mode
+        const readBookButton = document.getElementById('read-book');
+        const bookReaderSection = document.getElementById('book-reader');
+        const bookFrame = document.getElementById('book-frame');
+        const closeBookButton = document.getElementById('close-book');
+
+        readBookButton.addEventListener('click', function () {
+            const bookURL = '/Book/1. Web Design Basics Author Bhoj University.pdf';
+            bookFrame.src = bookURL;
+            bookReaderSection.classList.remove('hidden');
+            bookReaderSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        closeBookButton.addEventListener('click', function () {
+            bookReaderSection.classList.add('hidden');
+            bookFrame.src = ''; // Clear the iframe src
+        });
+    </script>
+</body>
+
+</html>

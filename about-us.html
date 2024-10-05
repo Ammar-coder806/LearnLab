@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LearnLab</title>
+    <link rel="icon" href="/images/logo1.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .logo h1 {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        nav ul li button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li button:hover {
+            color: #f39c12;
+        }
+
+        .about {
+            padding: 40px 20px;
+        }
+
+        .about-hero {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            background: url('/images/about-hero.jpg') no-repeat center center/cover;
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .team {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .team h2 {
+            font-size: 32px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .team-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .team-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 3px solid #f39c12;
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-info h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .team-info p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #f39c12;
+        }
+
+        footer p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .team-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-card {
+                width: 90%;
+            }
+
+            .hero-content h2 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+            .team-image{
+                size: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h2>LearnLab</h2>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about-us.html">About Us</a></li>
+                <li><a href="/courses.html">Courses</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/signup.html">Register</a></li>
+                <li><a href="/login.html">Login</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><button id="dark-mode-toggle">Dark Mode</button></li>
+            </ul>
+            <li id="user-info" class="hidden">
+                <span id="username"></span>
+                <a href="#" id="logout-link">Logout</a>
+            </li>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    </header>
+
+
+    <section class="about">
+        <div class="about-hero">
+            <div class="parallax"></div>
+            <div class="hero-content">
+                <h2>About Us</h2>
+                <p>LearnLab is dedicated to providing quality education to school students. Learn more about our mission, values, and team.</p>
+            </div>
+        </div>
+
+        <section class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-cards">
+                <div class="team-card">
+                    <img src="/images/author.jpg" alt="Author" class="team-image">
+                    <div class="team-info">
+                        <h3>Author of the Website</h3>
+                        <p>M.F.Ammar is the creator of LearnLab, with a passion for educational technology and innovative learning solutions.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="/images/teacher.jpg" alt="Supervising Teacher" class="team-image">
+                    <div class="team-info">
+                        <h3>Supervising Teacher</h3>
+                        <p>Mr.J.M.Hamthoon is the supervising teacher at LearnLab, ensuring that all content is accurate and up-to-date with educational standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 LearnLab. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+
+</html>

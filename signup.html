@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnLab - Register</title>
+    <link rel="icon" href="/images/logo1.png">
+    <link rel="stylesheet" href="/css/styles.css"> 
+    <link rel="stylesheet" href="css/log.css"> 
+</head> 
+
+<body>
+    <header>
+        <div class="logo">
+            <h2>LearnLab</h2>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about-us.html">About Us</a></li>
+                <li><a href="/courses.html">Courses</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/signup.html">Register</a></li>
+                <li><a href="/login.html">Login</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><button id="dark-mode-toggle">Dark Mode</button></li>
+            </ul>
+            <li id="user-info" class="hidden">
+                <span id="username"></span>
+                <a href="#" id="logout-link">Logout</a>
+            </li>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <section class="auth-container">
+        <div class="glassmorphism-card">
+            <h2>Register</h2>
+            <form id="register-form" action="#" method="post">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div class="input-group">
+                    <label for="privacy-policy">I accept LearnLab's Privacy Policy</label>
+                    <input type="Checkbox" required>
+                </div>
+                <button type="submit" class="cta-button">Register</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LearnLab. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const registerForm = document.getElementById('register-form');
+
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Post data to server for email sending
+                const postData = {
+                    username: username,
+                    email: email,
+                    password: password
+                };
+
+                fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(postData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Registration successful! A confirmation email has been sent.');
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Registration failed: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

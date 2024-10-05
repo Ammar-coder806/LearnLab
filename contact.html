@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - LearnLab</title>
+    <link rel="icon" href="/images/logo1.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* Contact Page Styles */
+.contact-hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.contact-hero .parallax {
+    background: url('/images/contact.jpg') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: translateY(-30%);
+    will-change: transform;
+    transition: transform 0.4s ease-in-out;
+}
+
+.contact-hero .hero-content {
+    z-index: 1;
+    padding: 20px;
+    max-width: 800px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.contact-hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.contact-hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Contact Form Section */
+.contact-form {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.contact-form h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.contact-form form {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #ff5733;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #ff4411;
+}
+
+/* Map Section */
+.map {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+}
+
+.map iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    border-radius: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contact-hero h2 {
+        font-size: 36px;
+    }
+
+    .contact-hero p {
+        font-size: 18px;
+    }
+
+    .contact-form h2 {
+        font-size: 30px;
+    }
+
+    .contact-form input, .contact-form textarea {
+        font-size: 14px;
+    }
+
+    .contact-form button {
+        font-size: 16px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h2>LearnLab</h2>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about-us.html">About Us</a></li>
+                <li><a href="/courses.html">Courses</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/signup.html">Register</a></li>
+                <li><a href="/login.html">Login</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><button id="dark-mode-toggle">Dark Mode</button></li>
+            </ul>
+            <li id="user-info" class="hidden">
+                <span id="username"></span>
+                <a href="#" id="logout-link">Logout</a>
+            </li>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+    </header>
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="parallax"></div>
+        <div class="hero-content">
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Please reach out with any questions or feedback.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map">
+        <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d197.28318518553082!2d81.6036397!3d7.7777595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afad40802c87bd5%3A0xeb75cb7490d1274e!2sAlighar%20National%20School!5e0!3m2!1sen!2slk!4v1695752364278!5m2!1sen!2slk"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    </section>
+     <script src="/js/scripts.js"></script>
+</body>
+</html>
